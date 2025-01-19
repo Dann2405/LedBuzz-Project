@@ -77,5 +77,30 @@ int main()
 
     printf("Programa inicializado. Aguardando comandos...\n");
 
+    char command[32];
+    while (true) {
+        // Lê o comando via UART
+        if (uart_is_readable(UART_ID)) {
+            int index = 0;
+            while (index < sizeof(command) - 1) {
+                int character = uart_getc(UART_ID);
+                if (character != PICO_ERROR_TIMEOUT) {
+                    command[index++] = (char)character;
+                    if (character == '\n' || character == '\r') {
+                        break;
+                    }
+                }
+            }
+            command[index] = '\0';
+            if (index > 0) {
+                process_command(command);
+            }
+        } else {
+            if (scanf("%32s", command) == 1) {
+                process_command(command);
+            }
+        }
+    }
+
     return 0;
 }
