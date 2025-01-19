@@ -42,6 +42,30 @@ void initialize_gpio() {
     gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
 }
 
+// Função para processar comandos recebidos
+void process_command(const char *command) {
+    if (strcmp(command, "Vermelho") == 0) {
+        turn_on_led(LED_VERMELHO);
+    } else if (strcmp(command, "Azul") == 0) {
+        turn_on_led(LED_AZUL);
+    } else if (strcmp(command, "Verde") == 0) {
+        turn_on_led(LED_VERDE);
+    } else if (strcmp(command, "Branco") == 0) {
+        turn_on_all_leds();
+    } else if (strcmp(command, "Desligar") == 0) {
+        turn_off_leds();
+    } else if (strcmp(command, "BuzzerA") == 0) {
+        activate_buzzer(BUZZER_A);
+    } else if (strcmp(command, "BuzzerB") == 0) {
+        activate_buzzer(BUZZER_B);
+    } else {
+        printf("Comando desconhecido: %s\n", command);
+        return;
+    }
+
+    printf("Comando processado: %s\n", command);
+}
+
 int main()
 {
     stdio_init_all();
