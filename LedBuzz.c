@@ -22,6 +22,8 @@
 
 // Função de inicialização das GPIOs
 void initialize_gpio() {
+
+    //confugarção dos leds como saída
     gpio_init(LED_VERMELHO);
     gpio_set_dir(LED_VERMELHO, GPIO_OUT);
 
@@ -31,6 +33,7 @@ void initialize_gpio() {
     gpio_init(LED_VERDE);
     gpio_set_dir(LED_VERDE, GPIO_OUT);
 
+    //configuração dos buzzers como saída
     gpio_init(BUZZER_A);
     gpio_set_dir(BUZZER_A, GPIO_OUT);
 
@@ -59,6 +62,13 @@ void turn_on_all_leds() {
     gpio_put(LED_VERMELHO, 1);
     gpio_put(LED_AZUL, 1);
     gpio_put(LED_VERDE, 1);
+}
+
+//função para ativação dos buzzers A ou B
+void activate_buzzer(int buzzer){
+    gpio_put(buzzer, 1);
+    sleep_ms(2000);
+    gpio_put(buzzer, 0);
 }
 
 // Função para processar comandos recebidos
