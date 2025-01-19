@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
 
@@ -22,7 +23,7 @@
 // Função de inicialização das GPIOs
 void initialize_gpio() {
 
-    //Leds configurados como saída
+    //confugarção dos leds como saída
     gpio_init(LED_VERMELHO);
     gpio_set_dir(LED_VERMELHO, GPIO_OUT);
 
@@ -32,7 +33,7 @@ void initialize_gpio() {
     gpio_init(LED_VERDE);
     gpio_set_dir(LED_VERDE, GPIO_OUT);
 
-    //Buzzers configurados como saída
+    //configuração dos buzzers como saída
     gpio_init(BUZZER_A);
     gpio_set_dir(BUZZER_A, GPIO_OUT);
 
@@ -44,8 +45,26 @@ void initialize_gpio() {
     gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
     gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
 }
+// Funções para controle dos LEDs
+void turn_on_led(int gpio) {
+    gpio_put(LED_VERMELHO, gpio == LED_VERMELHO);
+    gpio_put(LED_AZUL, gpio == LED_AZUL);
+    gpio_put(LED_VERDE, gpio == LED_VERDE);
+}
 
+void turn_off_leds() {
+    gpio_put(LED_VERMELHO, 0);
+    gpio_put(LED_AZUL, 0);
+    gpio_put(LED_VERDE, 0);
+}
 
+void turn_on_all_leds() {
+    gpio_put(LED_VERMELHO, 1);
+    gpio_put(LED_AZUL, 1);
+    gpio_put(LED_VERDE, 1);
+}
+
+//função para ativação dos buzzers A ou B
 void activate_buzzer(int buzzer){
     gpio_put(buzzer, 1);
     sleep_ms(2000);
