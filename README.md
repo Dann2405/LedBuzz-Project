@@ -104,6 +104,7 @@ Abra o projeto no Visual Studio Code e siga as etapas abaixo:
 - **Desenvolvedores**:
   - Wilson Oliveira Lima
   - Ana Carla Macário Santana
+  - Rafael Souza Barbosa
 
 ---
 
