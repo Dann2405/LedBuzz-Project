@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
 
@@ -40,6 +41,24 @@ void initialize_gpio() {
     uart_init(UART_ID, BAUD_RATE);
     gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
     gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
+}
+// Funções para controle dos LEDs
+void turn_on_led(int gpio) {
+    gpio_put(LED_VERMELHO, gpio == LED_VERMELHO);
+    gpio_put(LED_AZUL, gpio == LED_AZUL);
+    gpio_put(LED_VERDE, gpio == LED_VERDE);
+}
+
+void turn_off_leds() {
+    gpio_put(LED_VERMELHO, 0);
+    gpio_put(LED_AZUL, 0);
+    gpio_put(LED_VERDE, 0);
+}
+
+void turn_on_all_leds() {
+    gpio_put(LED_VERMELHO, 1);
+    gpio_put(LED_AZUL, 1);
+    gpio_put(LED_VERDE, 1);
 }
 
 // Função para processar comandos recebidos
