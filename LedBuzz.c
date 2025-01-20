@@ -106,6 +106,8 @@ int main()
 
     printf("Programa inicializado. Aguardando comandos...\n");
 
+    bool command_received = false;
+
     char command[32];
     while (true) {
         // Lê o comando via UART
@@ -123,8 +125,11 @@ int main()
             command[index] = '\0';
             if (index > 0) {
                 process_command(command);
+                command_received = true;
             }
-        } else {
+        }
+
+        if (!command_received) {
             if (scanf("%32s", command) == 1) {
                 process_command(command);
             }
