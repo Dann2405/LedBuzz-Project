@@ -5,7 +5,7 @@
 
 // Definições da UART
 // Por padrão, a UART stdout é `uart0`, então usaremos a segunda
-#define UART_ID uart1
+#define UART_ID uart0
 #define BAUD_RATE 115200
 
 // Usar os pinos 4 e 5 para UART1
