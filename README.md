@@ -141,4 +141,4 @@ Pronto, basta agora utilizar os comandos que foram mencionados no Teste no Hardw
 
 ## Vídeo Ensaio
 
-https://drive.google.com/file/d/1b2GkK3ch5PxIQBCDETNjeZt1TE8KrnTt/view?usp=sharing
+Click [AQUI](https://drive.google.com/file/d/1b2GkK3ch5PxIQBCDETNjeZt1TE8KrnTt/view?usp=sharing) para acessar o link do video Ensaio
