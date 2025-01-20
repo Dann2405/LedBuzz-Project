@@ -2,7 +2,7 @@
 
 ## Descrição do Projeto
 
-Este projeto utiliza o **Raspberry Pi Pico** para controlar LEDs RGB e dois buzzers com base em comandos recebidos via terminal serial (**PuTTY**). O sistema foi desenvolvido em **linguagem C**, configurado para rodar no **VS Code** com o SDK do Raspberry Pi Pico instalado, e pode ser testado tanto em hardware real quanto no simulador **Wokwi**.
+Este projeto utiliza o **Raspberry Pi Pico** para controlar LEDs RGB e dois buzzers com base em comandos recebidos via terminal serial (**PuTTY / VS Code Serial Monitor**). O sistema foi desenvolvido em **linguagem C**, configurado para rodar no **VS Code** com o SDK do Raspberry Pi Pico instalado, e pode ser testado tanto em hardware real quanto no simulador **Wokwi**.
 
 ---
 
@@ -53,7 +53,7 @@ Abra o projeto no Visual Studio Code e siga as etapas abaixo:
 
 1. Abra o arquivo `diagram.json` no Visual Studio Code.
 2. Clique no botão "Play" disponível na interface.
-3. Visualize os LEDs e buzzers respondendo aos comandos enviados.
+3. Visualize os LEDs respondendo aos comandos enviados.
 
 ---
 
@@ -71,7 +71,7 @@ Abra o projeto no Visual Studio Code e siga as etapas abaixo:
 
 3. Execute o projeto clicando em **Run Project USB**, localizado abaixo do botão **Compile Project**.
 
-3. Utilize o terminal serial (PuTTY) para enviar os seguintes comandos:
+3. Utilize o terminal serial (PuTTY ou VS Code Serial Monitor) para enviar os seguintes comandos:
    - **`Verde`**: Liga o LED verde.
    - **`Azul`**: Liga o LED azul.
    - **`Vermelho`**: Liga o LED vermelho.
