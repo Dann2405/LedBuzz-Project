@@ -64,11 +64,26 @@ void turn_on_all_leds() {
     gpio_put(LED_VERDE, 1);
 }
 
+// Funções para controle dos buzzers
+void buzzer_beep(int frequency, int duration, int buzzer_pin) {
+    // Defina o comportamento do buzzer para emitir um som com a frequência e duração especificadas
+    // Você pode usar um PWM ou outro método, dependendo de como o buzzer está conectado
+    gpio_put(buzzer_pin, 1);  // Ativa o buzzer
+    sleep_ms(duration);       // Mantém o som por um tempo
+    gpio_put(buzzer_pin, 0);  // Desativa o buzzer
+}
+
 //função para ativação dos buzzers A ou B
-void activate_buzzer(int buzzer){
-    gpio_put(buzzer, 1);
-    sleep_ms(2000);
-    gpio_put(buzzer, 0);
+void sound_pattern_1() {
+    buzzer_beep(800, 200, BUZZER_A);  // Frequência 800Hz por 200ms no BUZZER_A
+    sleep_ms(100);                    // Pausa entre os beeps
+    buzzer_beep(800, 200, BUZZER_A);  // Frequência 800Hz por 200ms no BUZZER_A
+}
+
+void sound_pattern_2() {
+    buzzer_beep(1000, 400, BUZZER_B); // Frequência 1000Hz por 400ms no BUZZER_B
+    sleep_ms(50);                     // Pausa entre os beeps
+    buzzer_beep(1200, 300, BUZZER_B); // Frequência 1200Hz por 300ms no BUZZER_B
 }
 
 // Função para processar comandos recebidos
@@ -84,9 +99,9 @@ void process_command(const char *command) {
     } else if (strcmp(command, "Desligar") == 0) {
         turn_off_leds();
     } else if (strcmp(command, "BuzzerA") == 0) {
-        activate_buzzer(BUZZER_A);
+        sound_pattern_1(BUZZER_A);
     } else if (strcmp(command, "BuzzerB") == 0) {
-        activate_buzzer(BUZZER_B);
+        sound_pattern_2(BUZZER_B);
     } else {
         printf("Comando desconhecido: %s\n", command);
         return;
