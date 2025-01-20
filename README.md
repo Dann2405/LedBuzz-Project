@@ -78,8 +78,31 @@ Abra o projeto no Visual Studio Code e siga as etapas abaixo:
    - **`Branco`**: Liga todos os LEDs simultaneamente.
    - **`BuzzerA`**: Aciona o buzzer no GPIO 21 por 2 segundos.
    - **`BuzzerB`**: Aciona o buzzer no GPIO 10 por 2 segundos.
-  
-4. Caso tenha dúvidas sobre como utilizar o Putty, dê uma olhada no video Ensaio, disponível no final dessa documentação.
+
+---
+
+### Utilização do Serial Monitor no VS Code
+
+Faça a seguinte configuração:
+
+- **Monitor Mode**: Serial
+- **View Mode**: Text
+- **Port**: A porta da sua Raspberry Pi Pico W (Você pode achar ela em Gerenciador de dispositivos, Portas COM, normalmente é o COM4 ou COM3).
+- **Baud Rate**: 115200
+- **Line Ending**: LF
+- Clique em **Start Monitoring**.
+
+Pronto, basta agora utilizar os comandos que foram mencionados no Teste no Hardware (Placa de desenvolvimento BitDogLab), item 3.
+
+---
+
+### Utilização no Putty
+
+1. Na página inicial, em **Connection Type**, selecione a opção: Serial.
+2. Em **Serial Line**, modifique de acordo com a porta COM da sua placa de desenvolvimento (normalmente COM3 ou COM4).
+3. Clique em **OPEN**.
+
+Pronto, basta agora utilizar os comandos que foram mencionados no Teste no Hardware (Placa de desenvolvimento BitDogLab), item 3.
 
 ---
 
@@ -100,11 +123,19 @@ Abra o projeto no Visual Studio Code e siga as etapas abaixo:
 
 - **Líder do Projeto**:
   - Daniel Soares Oliveira Santos
+     - Responsável por: Documentar o README.md e gerenciar o repositório por completo. 
 
 - **Desenvolvedores**:
   - Wilson Oliveira Lima
+     - Responsável por: Funções de processamento
   - Ana Carla Macário Santana
+     - Responsável por: Função LED
   - Rafael Souza Barbosa
+     - Responsável por: Função Buzzers
+  - José Wilson Passos Dos Santos júnior
+     - Responsável por: Adiconar som aos Buzzers 
+  - Gabriel Souza Santos
+     - Responsável por: testes na placa de desenvolvimento e Video ensaio 
 
 ---
 
